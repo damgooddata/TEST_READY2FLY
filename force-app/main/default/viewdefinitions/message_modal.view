@@ -1,0 +1,20 @@
+description: 'This is a simple component that displays a message in a modal'
+schema:
+    properties:
+        title:
+            type: string
+            required: true
+        message:
+            type: string
+            required: true
+components:
+    - definition: modal
+      properties:
+          title: '{!view.properties.title}'
+      components:
+          - definition: section
+            properties:
+                text:
+                    text: '{!view.properties.message}'
+                    type: mrkdwn
+                    disableEncoding: true

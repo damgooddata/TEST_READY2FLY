@@ -1,0 +1,72 @@
+{
+    "display_information": {
+        "name": "Ready to Fly (Apex SDK version)",
+        "description": "Ready to Fly app using the Apex SDK for Slack"
+    },
+    "features": {
+        "app_home": {
+            "home_tab_enabled": true,
+            "messages_tab_enabled": true,
+            "messages_tab_read_only_enabled": true
+        },
+        "bot_user": {
+            "display_name": "Ready to Fly (Apex SDK)",
+            "always_online": false
+        },
+        "shortcuts": [
+            {
+                "name": "Create Travel Request",
+                "type": "global",
+                "callback_id": "apex-create-travel-request-global",
+                "description": "Create a travel request using a slack global shortcut."
+            }
+        ],
+        "slash_commands": [
+            {
+                "command": "/view-travel-request-status",
+                "url": "https://slack-apps.salesforce.com:9443/a/APP_ID",
+                "description": "Allows to view travel requests status",
+                "usage_hint": "/view-travel-request-status travelRequestName",
+                "should_escape": false
+            }
+        ]
+    },
+    "oauth_config": {
+        "redirect_urls": [
+            "https://auth.slack-apps.salesforce.com/slack_oauth_callback/APP_ID"
+        ],
+        "scopes": {
+            "user": ["reactions:read", "chat:write"],
+            "bot": [
+                "channels:read",
+                "chat:write",
+                "commands",
+                "groups:read",
+                "reactions:read",
+                "users:read"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "request_url": "https://slack-apps.salesforce.com:9443/a/APP_ID",
+            "bot_events": [
+                "app_home_opened",
+                "app_uninstalled",
+                "grid_migration_finished",
+                "grid_migration_started",
+                "team_access_granted",
+                "team_access_revoked",
+                "tokens_revoked"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://slack-apps.salesforce.com:9443/a/APP_ID",
+            "message_menu_options_url": "https://slack-apps.salesforce.com:9443/a/APP_ID"
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}
